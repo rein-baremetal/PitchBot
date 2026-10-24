@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PitchBot</string>
+    <string name="tap_service_label">PitchBot controller taps</string>
+    <string name="tap_service_desc">Lets PitchBot drag the joystick and tap your mapped PASS and THROUGH buttons, and lets the volume keys start / stop it while it runs. It reads no screen content and sends nothing anywhere.</string>
+</resources>
