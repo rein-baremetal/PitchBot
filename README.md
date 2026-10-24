@@ -13,9 +13,10 @@ Native C++ engine (xT / xP decisions, tracking, shooting) with a Kotlin app. Not
 - **Late-game plan:** protect a lead or chase a goal. All settings are in the app under Advanced settings.
 
 ## Install
-1. Download the APK from the latest **Actions** run (artifact `PitchBot.apk`) or build it yourself.
-2. Allow overlay, the accessibility service and notifications. Map the controls once in the wizard.
-3. Open the game, press Volume Up and tap the dot in your team's colour. Volume Down at full time.
+1. Download the latest APK from [Releases](https://github.com/rein-baremetal/PitchBot/releases/latest).
+2. Allow "Install unknown apps" for your browser or file manager, then open the APK.
+3. Allow overlay, the accessibility service and notifications. Map the controls once in the wizard.
+4. Open the game, press Volume Up and tap the dot in your team's colour. Volume Down at full time.
 
 ## Build and test
 ```
