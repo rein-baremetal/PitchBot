@@ -1,0 +1,48 @@
+name: Build PitchBot APK
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  engine-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run engine tests
+        working-directory: engine_test
+        run: |
+          sh run_tests.sh | tee results.txt
+          if grep -E "failures: [1-9]" results.txt; then exit 1; fi
+
+  build-apk:
+    needs: engine-tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: ''
+
+      - name: Install NDK and CMake
+        run: sdkmanager "ndk;26.1.10909125" "cmake;3.22.1" "platforms;android-34" "build-tools;34.0.0"
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.5
+
+      - name: Build debug APK
+        working-directory: .
+        run: gradle :app:assembleDebug --stacktrace
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PitchBot-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
