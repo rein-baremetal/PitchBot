@@ -3,7 +3,7 @@
 An offline Android overlay that plays eFootball offline matches by reading the radar.
 Native C++ engine (xT / xP decisions, tracking, shooting) with a Kotlin app. Nothing leaves your phone.
 
-**Version:** 6.33 "Goal Hunger" (app 2.45) · **Releases:** a new version about every 2 weeks
+**Version:** 6.33 "Goal Hunger" (app 2.45)
 
 ## What it does
 - **Possession:** fast-triangle build-up; a crowded carrier releases the ball instead of dribbling into the press.
